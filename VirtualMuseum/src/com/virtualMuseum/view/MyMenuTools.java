@@ -17,8 +17,8 @@ import com.virtualMuseum.view.PrincipalPanel.ButtonListener;
 
 public class MyMenuTools extends JPanel{
 	Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-	int height = (int)screenSize.getHeight()-50;
-	int width = (int)screenSize.getWidth()-50;
+	int height = (int)screenSize.getHeight();
+	int width = (int)screenSize.getWidth();
 	JToolBar toolsBar = new JToolBar();
 	JButton toolsave;
 	JButton toolopen;

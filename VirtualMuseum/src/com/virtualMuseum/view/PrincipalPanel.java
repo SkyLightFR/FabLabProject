@@ -327,21 +327,56 @@ public class PrincipalPanel extends JPanel {
 				
 			}
 			if(e.getSource()==menuChanges.getTransX()){
-				new TranslationX(printer,-1);
-				repaint();
-			
+				boolean doTranslation=false;
+				for(int i=0; i<readFile.getNbPoints(); i++){
+					if((readFile.getTabPoints()[i].getX()*printer.getZoom())+printer.getXsize()/2<print.getWidth()-70 ){
+						doTranslation=true;
+						break;
+					}
+				}
+				if(doTranslation){
+					new TranslationX(printer,-1);
+					repaint();
+				}	
 			}
 			if(e.getSource()==menuChanges.getTransY()){
-				new TranslationY(printer,1);
-				repaint();
+				boolean doTranslation=false;
+				for(int i=0; i<readFile.getNbPoints(); i++){
+					if((readFile.getTabPoints()[i].getY()*printer.getZoom())+printer.getYsize()/2>print.getY()-100){
+						doTranslation=true;
+						break;
+					}
+				}
+				if(doTranslation){
+					new TranslationY(printer,1);
+					repaint();
+				}
 			}
 			if(e.getSource()==menuChanges.getTransLowerX()){
-				new TranslationX(printer,1);
-				repaint();
+				boolean doTranslation=false;
+				for(int i=0; i<readFile.getNbPoints(); i++){
+					if((readFile.getTabPoints()[i].getX()*printer.getZoom())+printer.getXsize()/2>print.getX()-200){
+						doTranslation=true;
+						break;
+					}
+				}
+				if(doTranslation){
+					new TranslationX(printer,1);
+					repaint();
+				}	
 			}
 			if(e.getSource()==menuChanges.getTransLowerY()){
-				new TranslationY(printer,-1);
-				repaint();
+				boolean doTranslation=false;
+				for(int i=0; i<readFile.getNbPoints(); i++){
+					if((readFile.getTabPoints()[i].getY()*printer.getZoom())+printer.getYsize()/2<print.getHeight()-50){
+						doTranslation=true;
+						break;
+					}
+				}
+				if(doTranslation){
+					new TranslationY(printer,-1);
+					repaint();
+				}
 			}
 			if(e.getSource()==menuChanges.getTransCenter()){
 				new TranslationCenter(printer,PrincipalPanel.this);
@@ -381,7 +416,7 @@ public class PrincipalPanel extends JPanel {
 					zoom+=5;
 					printer.setZoom(zoom);
 					repaint();
-				}else{
+				}else if(zoom>5){
 					zoom-=5;
 					printer.setZoom(zoom);
 					repaint();
@@ -405,9 +440,7 @@ public class PrincipalPanel extends JPanel {
 			if(e.getSource()==print){
 				clicx=e.getX();
 				clicy=e.getY();	
-			}
-			
-			
+			}	
 		}
 
 		@Override
@@ -429,9 +462,7 @@ public class PrincipalPanel extends JPanel {
 			// TODO Auto-generated method stub
 			
 			
-		}
-		
-		
+		}	
 	}
 	
 	public class Drag implements MouseMotionListener{

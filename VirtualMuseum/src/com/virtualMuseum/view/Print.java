@@ -73,7 +73,6 @@ public class Print extends JPanel {
 
 		}		
 		//System.out.println((int)((g.getColor().getRed()*getLight())/ratio+" "+(int)((g.getColor().getGreen()*getLight())/ratio)+" "+ (int)((g.getColor().getBlue()*getLight())/ratio))));
-		//System.out.println(ratio);
 	}
 
 
@@ -101,6 +100,14 @@ public class Print extends JPanel {
 	}
 	public void setReadFile(OpenFiles readFile) {
 		this.readFile = readFile;
+	}
+
+	public int getXsize() {
+		return xsize;
+	}
+
+	public int getYsize() {
+		return ysize;
 	}
 
 

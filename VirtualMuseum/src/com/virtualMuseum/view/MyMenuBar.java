@@ -12,8 +12,8 @@ import com.virtualMuseum.view.PrincipalPanel.ButtonListener;
 
 public class MyMenuBar extends JPanel{
 	Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-	int height = (int)screenSize.getHeight()-50;
-	int width = (int)screenSize.getWidth()-50;
+	int height = (int)screenSize.getHeight();
+	int width = (int)screenSize.getWidth();
 	JMenuBar menuBar = new JMenuBar();
 	JMenu file = new JMenu("Fichier");
 	JMenuItem open = new JMenuItem("Ouvrir");
