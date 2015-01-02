@@ -1,9 +1,13 @@
 package com.virtualMuseum.view;
 
+import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.MouseInfo;
 import java.awt.Polygon;
+import java.awt.RadialGradientPaint;
 
 import javax.swing.JCheckBox;
 import javax.swing.JPanel;
@@ -26,27 +30,50 @@ public class Print extends JPanel {
 		this.readFile=readFile;
 		this.setPreferredSize(new Dimension(600,400));
 		this.add(lightBox);
-		
 
 	}
 
+	public void paintComponent (Graphics g){
+		super.paintComponent(g);
+		xsize = this.getWidth();
+		ysize = this.getHeight();
+		this.readFile.insertSort(this.readFile.getTabFaces());	
+		Graphics2D g2d = (Graphics2D)g;
+		java.awt.geom.Point2D center = new java.awt.geom.Point2D.Float(0,0 );
+		float radius = 30;
+		float[] dist = {0.0f, 1.0f};
+		Color[] colors = {new Color(0.0f, 0.0f, 0.0f, 0.0f), Color.BLACK};
+		RadialGradientPaint p = new RadialGradientPaint(center, radius, dist, colors);
+		g2d.setPaint(p);
+		g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, .6f));
+		for(int i=0; i<this.readFile.getNbFaces(); i++){
+			Polygon p1 = new Polygon(new int[]{(int)(this.readFile.getTabFaces()[i].getP()[0].getX()*zoom)+xsize/2,
+					(int)(this.readFile.getTabFaces()[i].getP()[1].getX()*zoom)+xsize/2,
+					(int)(this.readFile.getTabFaces()[i].getP()[2].getX()*zoom)+xsize/2},
+					new int[]{(int)(this.readFile.getTabFaces()[i].getP()[0].getY()*zoom)+ysize/2,
+					(int)(this.readFile.getTabFaces()[i].getP()[1].getY()*zoom)+ysize/2,
+					(int)(this.readFile.getTabFaces()[i].getP()[2].getY()*zoom)+ysize/2},3);
+			g2d.fillPolygon(p1);
+		}
+		
+		g2d.dispose();
+	}
 
 
-	@Override
-	public void paintComponent(final Graphics g){
+	/*public void paintComponent(final Graphics g){
 		super.paintComponent(g);
 
 		xsize = this.getWidth();
 		ysize = this.getHeight();
-		
+
 
 
 		this.readFile.insertSort(this.readFile.getTabFaces());	
 
 		Color color = new Color(223,175,44);
 		for(int i=0; i<this.readFile.getNbFaces(); i++){
-			
-			g.setColor(color);
+
+			g.setColor(color.red);
 			Polygon p = new Polygon(new int[]{(int)(this.readFile.getTabFaces()[i].getP()[0].getX()*zoom)+xsize/2,
 					(int)(this.readFile.getTabFaces()[i].getP()[1].getX()*zoom)+xsize/2,
 					(int)(this.readFile.getTabFaces()[i].getP()[2].getX()*zoom)+xsize/2},
@@ -55,8 +82,8 @@ public class Print extends JPanel {
 					(int)(this.readFile.getTabFaces()[i].getP()[2].getY()*zoom)+ysize/2},3);
 
 
-			g.fillPolygon(p);
-			g.setColor(color);
+			//g.fillPolygon(p);
+			g.setColor(color.red);
 			g.drawLine( (int)(this.readFile.getTabFaces()[i].getS1().getP1().getX()*zoom)+xsize/2,
 					(int)(this.readFile.getTabFaces()[i].getS1().getP1().getY()*zoom)+ysize/2,	
 					(int)(this.readFile.getTabFaces()[i].getS1().getP2().getX()*zoom)+xsize/2,
@@ -71,9 +98,9 @@ public class Print extends JPanel {
 					(int)(this.readFile.getTabFaces()[i].getS3().getP2().getY()*zoom)+ysize/2);
 
 
-		}		
-		//System.out.println((int)((g.getColor().getRed()*getLight())/ratio+" "+(int)((g.getColor().getGreen()*getLight())/ratio)+" "+ (int)((g.getColor().getBlue()*getLight())/ratio))));
-	}
+		}
+
+	}*/
 
 
 	public OpenFiles getReadFile() {
@@ -109,12 +136,4 @@ public class Print extends JPanel {
 	public int getYsize() {
 		return ysize;
 	}
-
-
-
-
-
-
-
-
 }
