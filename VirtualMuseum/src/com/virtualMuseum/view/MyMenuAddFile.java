@@ -63,6 +63,7 @@ public class MyMenuAddFile extends JFrame {
 				if(text.getText()!=""){
 					Connexion con = new Connexion("Database.db");
 					con.addKeyWord(text.getText(),readFile.getFile());
+					con.close();
 					readFile.getKeyWords().add(text.getText());	
 				}
 				MyMenuAddFile.this.dispose();
