@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import com.virtualMuseum.controler.OpenFiles;
+import com.virtualMuseum.database.Connexion;
 
 public class MyMenuAddFile extends JFrame {
 	JPanel panel=new JPanel();
@@ -21,7 +22,6 @@ public class MyMenuAddFile extends JFrame {
 	JLabel name;
 	JLabel keyWords;
 	JTextField text=new JTextField();
-	JButton addKeyWords=new JButton("Ajouter le mot clé");
 	JButton addInBDD=new JButton("Ajouter à la bibliothèque");
 	OpenFiles readFile;
 	
@@ -34,10 +34,8 @@ public class MyMenuAddFile extends JFrame {
 		this.setLocationRelativeTo(null);
 		this.readFile=readFile;
 		ButtonListener listener = new ButtonListener();
-		text.setPreferredSize(new Dimension(100,25));
+		text.setPreferredSize(new Dimension(50,25));
 		panel.setPreferredSize(new Dimension(510,150));
-		addKeyWords.setPreferredSize(new Dimension(100,25));
-		addKeyWords.addActionListener(listener);
 		addInBDD.addActionListener(listener);
 		addInBDD.setPreferredSize(new Dimension(100,25));
 		name=new JLabel(readFile.getFile());
@@ -49,7 +47,6 @@ public class MyMenuAddFile extends JFrame {
 		panel.add(keyWords);
 		panel.add(text);
 		buttonPanel.setLayout(new BoxLayout(buttonPanel,BoxLayout.LINE_AXIS));
-		buttonPanel.add(addKeyWords);
 		buttonPanel.add(addInBDD);
 		panel.add(buttonPanel);
 		
@@ -62,12 +59,12 @@ public class MyMenuAddFile extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			if(e.getSource()==addKeyWords){
+			if(e.getSource()==addInBDD){
 				if(text.getText()!=""){
+					Connexion con = new Connexion("Database.db");
+					con.addKeyWord(text.getText(),readFile.getFile());
 					readFile.getKeyWords().add(text.getText());	
 				}
-			}
-			if(e.getSource()==addInBDD){
 				MyMenuAddFile.this.dispose();
 			}
 			

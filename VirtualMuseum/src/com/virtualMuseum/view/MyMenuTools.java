@@ -1,8 +1,8 @@
 package com.virtualMuseum.view;
 //test
 import java.awt.Dimension;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -11,8 +11,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
+import javax.swing.KeyStroke;
 
-import com.virtualMuseum.controler.ResearchFileByKeyWords;
 import com.virtualMuseum.view.PrincipalPanel.ButtonListener;
 
 public class MyMenuTools extends JPanel{
@@ -46,7 +46,6 @@ public class MyMenuTools extends JPanel{
 		search = new JTextField();
 		search.setPreferredSize(new Dimension(70, 10));
 		search.setSize(100, 10);
-		
 		
 		toolsBar.addSeparator();
 		toolsBar.add(toolopen);

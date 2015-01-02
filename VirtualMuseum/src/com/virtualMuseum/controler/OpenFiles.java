@@ -95,32 +95,35 @@ public class OpenFiles {
 			while(sc.hasNext()){
 				keyWords.add(sc.next());
 			}
-			
-			
-
-		
-
 	}
 	
-	public void insertSort(Faces[] tab) {
-    	int iEnd=tab.length;
-    	Faces tmp;
-    	int i,j;
-    	for(i=0; i<iEnd; i++){
-    		tmp=tab[i];
-    		for(j=i; j>0 && tab[j-1].compareTo(tmp)>0; j--){
-    			tab[j]=tab[j-1];
-    			
-    		}
-    		tab[j]=tmp;
-    		
-    		
-    	}
-    	
-    }
-	
+	public void quickSort(Faces arr[], int left, int right) {
+	      int index = sort(arr, left, right);
+	      if (left < index - 1)
+	            quickSort(arr, left, index - 1);
+	      if (index < right)
+	            quickSort(arr, index, right);
+	}
+	private int sort(Faces array[],int left, int right) {
+		int i = left, j = right;
+		Faces tmp;
+		Faces pivot = array[(left + right) / 2];
+		while (i <= j) {
+			while (array[i].compareTo(pivot)<0)
+				i++;
+			while (array[j].compareTo(pivot)>0)
+				j--;
+			if (i <= j) {
+				tmp = array[i];
+				array[i] = array[j];
+				array[j] = tmp;
+				i++;
+				j--;
+			}
+		}
+		return i;
+	}
 
-	
 	public ArrayList<String> getKeyWords() {
 		return keyWords;
 	}

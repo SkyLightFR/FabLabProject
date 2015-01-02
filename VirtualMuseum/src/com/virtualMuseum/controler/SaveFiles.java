@@ -57,7 +57,6 @@ public class SaveFiles {
 				
 			}
 			for(int i=0; i<keyWords.size(); i++){
-				System.out.println(keyWords.get(i));
 				saver.println(keyWords.get(i));
 				
 			}

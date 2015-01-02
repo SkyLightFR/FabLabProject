@@ -18,11 +18,14 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 
 import javax.swing.BorderFactory;
+import javax.swing.JCheckBox;
 import javax.swing.JFileChooser;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
+import javax.swing.JTabbedPane;
+import javax.swing.SwingConstants;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.TreeSelectionEvent;
@@ -58,8 +61,7 @@ public class PrincipalPanel extends JPanel {
 	MyMenuChanges menuChanges;
 	MyMenuInformations menuInfo;
 	
-	
-	
+	JCheckBox lightBox=new JCheckBox("Lumiere",false);
 	JMenuItem fileResearch=new JMenuItem("");
 	FileFilter gts = new SimpleFilter("Fichiers gts", ".gts");
 	JFileChooser chooser = new JFileChooser(new File("."));
@@ -130,6 +132,13 @@ public class PrincipalPanel extends JPanel {
 		gbc.gridheight=1;
 		this.add(menuTools, gbc);
 		
+		
+		gbc.gridx = 2;
+	    gbc.gridy = 2;
+		gbc.gridwidth = GridBagConstraints.REMAINDER;
+		gbc.gridheight=1;
+		this.add(lightBox,gbc);
+		
 		gbc.gridx = 0;
 	    gbc.gridy = 2;
 	    gbc.gridwidth = 3;
@@ -180,8 +189,7 @@ public class PrincipalPanel extends JPanel {
 				if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
 					fileChoose = chooser.getSelectedFile();
 					if (gts.accept(fileChoose)) {
-						try {
-							
+						try {	
 							printFile(fileChoose.getName());
 						} catch (Exception a) {
 							System.out.println(a.getMessage());
@@ -317,6 +325,16 @@ public class PrincipalPanel extends JPanel {
 					
 				}				
 			}
+			if(e.getSource()==menuBar.getSave()){
+				new SaveFiles(currentFile.getName(), printer);
+			}
+			if(e.getSource()==menuBar.getHelp()){
+				new MyMenuHelp();
+				
+			}
+			if(e.getSource()==menuBar.getExit()){
+				System.exit(0);
+			}
 			if(e.getSource()==fileResearch){
 				try{
 					printFile(fileResearch.getText());
@@ -405,6 +423,7 @@ public class PrincipalPanel extends JPanel {
 		
 	}
 	
+	
 	public class Zoom implements MouseWheelListener{
 		int zoom=0;
 		@Override
@@ -483,7 +502,6 @@ public class PrincipalPanel extends JPanel {
 	
 	public void printFile(String filename) throws Exception{
 		print.removeAll();
-		//printer=new Print(new OpenFileFromBDD(tree.getLastSelectedPathComponent().toString()));
 		readFile=new OpenFiles(filename);
 		printer=new Print(readFile);
 		printer.setPreferredSize(new Dimension(850,590));

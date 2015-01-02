@@ -1,6 +1,7 @@
 package com.virtualMuseum.view;
 
 import java.awt.AlphaComposite;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -8,28 +9,21 @@ import java.awt.Graphics2D;
 import java.awt.MouseInfo;
 import java.awt.Polygon;
 import java.awt.RadialGradientPaint;
-
 import javax.swing.JCheckBox;
 import javax.swing.JPanel;
-
 import com.virtualMuseum.controler.OpenFiles;
-import com.virtualMuseum.model.Light;
+
 
 public class Print extends JPanel {
 
 	int zoom =30;
 	int xsize;
 	int ysize;
-	private int light;
-	JCheckBox lightBox=new JCheckBox("Lumiere",false);
-
-	Light lightObject = new Light(0,0,0);
-
 	OpenFiles readFile;
 	public Print(OpenFiles readFile){
 		this.readFile=readFile;
 		this.setPreferredSize(new Dimension(600,400));
-		this.add(lightBox);
+		
 
 	}
 
@@ -37,7 +31,7 @@ public class Print extends JPanel {
 		super.paintComponent(g);
 		xsize = this.getWidth();
 		ysize = this.getHeight();
-		this.readFile.insertSort(this.readFile.getTabFaces());	
+		this.readFile.quickSort(this.readFile.getTabFaces(),0,this.readFile.getTabFaces().length-1);	
 		Graphics2D g2d = (Graphics2D)g;
 		java.awt.geom.Point2D center = new java.awt.geom.Point2D.Float(0,0 );
 		float radius = 30;
@@ -53,7 +47,7 @@ public class Print extends JPanel {
 					new int[]{(int)(this.readFile.getTabFaces()[i].getP()[0].getY()*zoom)+ysize/2,
 					(int)(this.readFile.getTabFaces()[i].getP()[1].getY()*zoom)+ysize/2,
 					(int)(this.readFile.getTabFaces()[i].getP()[2].getY()*zoom)+ysize/2},3);
-			g2d.fillPolygon(p1);
+				g2d.fillPolygon(p1);	
 		}
 		
 		g2d.dispose();
@@ -117,14 +111,6 @@ public class Print extends JPanel {
 		this.zoom = zoom;
 	}
 
-	public int getLight() {
-		return light;
-	}
-
-
-	public void setLight(int light) {
-		this.light = light;
-	}
 	public void setReadFile(OpenFiles readFile) {
 		this.readFile = readFile;
 	}

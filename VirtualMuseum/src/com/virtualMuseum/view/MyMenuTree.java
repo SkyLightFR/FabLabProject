@@ -20,9 +20,7 @@ public class MyMenuTree extends JPanel {
 	
 	JTree tree;
 	DefaultMutableTreeNode root = new DefaultMutableTreeNode("DataBase");
-	public MyMenuTree(TreeListener listener){
-	
-		
+	public MyMenuTree(TreeListener listener){	
 		Connexion connexion = new Connexion("Database.db");
 		connexion.connect();
 		ResultSet resultSet = connexion.query("SELECT * FROM Filegts");
@@ -41,10 +39,7 @@ public class MyMenuTree extends JPanel {
 		tree.addTreeSelectionListener(listener);
 		this.add(new JScrollPane(tree));
 	}
-	
-	
 
-	
 	public JTree getTree() {
 		return tree;
 	}
