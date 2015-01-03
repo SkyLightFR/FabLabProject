@@ -1,9 +1,9 @@
 package com.virtualMuseum.view;
 //test
 import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -11,7 +11,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
-import javax.swing.KeyStroke;
 
 import com.virtualMuseum.view.PrincipalPanel.ButtonListener;
 
@@ -65,7 +64,7 @@ public class MyMenuTools extends JPanel{
 		
 	}
 	protected JButton makeNavigationButton(String imageName, String toolTipText) {
-		String imgLocation = "images/" + imageName + ".png";
+		String imgLocation = "/images" + imageName + ".png";
 		
 		JButton button = new JButton();
 		button.setToolTipText(toolTipText);

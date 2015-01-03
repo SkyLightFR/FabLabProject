@@ -62,6 +62,7 @@ public class MyMenuAddFile extends JFrame {
 			if(e.getSource()==addInBDD){
 				if(text.getText()!=""){
 					Connexion con = new Connexion("Database.db");
+					con.connect();
 					con.addKeyWord(text.getText(),readFile.getFile());
 					con.close();
 					readFile.getKeyWords().add(text.getText());	
