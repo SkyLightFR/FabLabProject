@@ -1,0 +1,18 @@
+Développeur : Chevalier Benjamin, Grandjean Rémi, Quenon Thomas.
+
+Fonctionnalités implémentées : 
+
+-Charger un fichier .gts
+-Visualiser le modèle
+-Controler l'orientation du modèle
+-Controler le niveau de zoom sur l'objet
+-Translation
+-Source lumineuse
+-Ajout d'un objet dans une base de donnée
+-Sauvegarder un objet dans un nouveau fichier
+-Recherche simple
+-Recherche par mot clé
+-Recherche par date d'ajout
+-Modification des mots clés
+-Description de l'objet (Nom, Miniature, nombre de points, segments et faces, mots clés, date d'ajout)
+
