@@ -64,7 +64,7 @@ public class MyMenuTools extends JPanel{
 		
 	}
 	protected JButton makeNavigationButton(String imageName, String toolTipText) {
-		String imgLocation = "/images" + imageName + ".png";
+		String imgLocation = "images/" + imageName + ".png";
 		
 		JButton button = new JButton();
 		button.setToolTipText(toolTipText);
