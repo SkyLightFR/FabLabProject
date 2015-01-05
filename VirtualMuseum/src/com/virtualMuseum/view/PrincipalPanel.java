@@ -52,7 +52,7 @@ import com.virtualMuseum.database.GtsFile;
 public class PrincipalPanel extends JPanel {
 	Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
 	int height = (int)screenSize.getHeight();
-	int width = (int)screenSize.getWidth();
+	int width = (int)screenSize.getWidth()-100;
 	JPanel print = new JPanel();
 	JPanel info=new JPanel();
 	MyMenuBar menuBar;

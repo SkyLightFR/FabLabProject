@@ -27,7 +27,7 @@ public class Print extends JPanel {
 
 	}
 
-	public void paintComponent (Graphics g){
+	/*public void paintComponent (Graphics g){
 		super.paintComponent(g);
 		xsize = this.getWidth();
 		ysize = this.getHeight();
@@ -51,10 +51,10 @@ public class Print extends JPanel {
 		}
 		
 		g2d.dispose();
-	}
+	}*/
 
 
-	/*public void paintComponent(final Graphics g){
+	public void paintComponent(final Graphics g){
 		super.paintComponent(g);
 
 		xsize = this.getWidth();
@@ -62,23 +62,39 @@ public class Print extends JPanel {
 
 
 
-		this.readFile.insertSort(this.readFile.getTabFaces());	
+		this.readFile.quickSort(this.readFile.getTabFaces(),0,this.readFile.getTabFaces().length-1);	
 
 		Color color = new Color(223,175,44);
 		for(int i=0; i<this.readFile.getNbFaces(); i++){
+			double normX=0;
+			double normY=0;
+			double normZ=0;
 
-			g.setColor(color.red);
+			double lumX=2;
+			double lumY=2;
+			double lumZ=2;
+			
 			Polygon p = new Polygon(new int[]{(int)(this.readFile.getTabFaces()[i].getP()[0].getX()*zoom)+xsize/2,
 					(int)(this.readFile.getTabFaces()[i].getP()[1].getX()*zoom)+xsize/2,
 					(int)(this.readFile.getTabFaces()[i].getP()[2].getX()*zoom)+xsize/2},
 					new int[]{(int)(this.readFile.getTabFaces()[i].getP()[0].getY()*zoom)+ysize/2,
 					(int)(this.readFile.getTabFaces()[i].getP()[1].getY()*zoom)+ysize/2,
 					(int)(this.readFile.getTabFaces()[i].getP()[2].getY()*zoom)+ysize/2},3);
+			
+			
+			normX = (this.readFile.getTabFaces()[i].getP()[2].getY()-this.readFile.getTabFaces()[i].getP()[1].getY())*(this.readFile.getTabFaces()[i].getP()[2].getZ()-this.readFile.getTabFaces()[i].getP()[0].getZ()) - 
+					(this.readFile.getTabFaces()[i].getP()[1].getZ()-this.readFile.getTabFaces()[i].getP()[0].getZ())*(this.readFile.getTabFaces()[i].getP()[2].getY()-this.readFile.getTabFaces()[i].getP()[0].getY());
+			normY = (this.readFile.getTabFaces()[i].getP()[1].getZ()-this.readFile.getTabFaces()[i].getP()[0].getZ())*(this.readFile.getTabFaces()[i].getP()[2].getX()-this.readFile.getTabFaces()[i].getP()[0].getX()) - 
+					(this.readFile.getTabFaces()[i].getP()[1].getX()-this.readFile.getTabFaces()[i].getP()[0].getX())*(this.readFile.getTabFaces()[i].getP()[2].getZ()-this.readFile.getTabFaces()[i].getP()[0].getZ());	
+			normZ = (this.readFile.getTabFaces()[i].getP()[1].getX()-this.readFile.getTabFaces()[i].getP()[0].getX())*(this.readFile.getTabFaces()[i].getP()[2].getY()-this.readFile.getTabFaces()[i].getP()[0].getY()) - 
+					(this.readFile.getTabFaces()[i].getP()[1].getY()-this.readFile.getTabFaces()[i].getP()[0].getY())*(this.readFile.getTabFaces()[i].getP()[2].getX()-this.readFile.getTabFaces()[i].getP()[0].getX());
 
-
-			//g.fillPolygon(p);
+			double cos = (normX*lumX+normY*lumY+normZ*lumZ)/(Math.sqrt((normX*normX+normY*normY+normZ*normZ)*(lumX*lumX+lumY*lumY+lumZ*lumZ)));
+			g.setColor(new Color(Math.abs((int)(255*cos)),0,0));
+			g.fillPolygon(p);
+			
 			g.setColor(color.red);
-			g.drawLine( (int)(this.readFile.getTabFaces()[i].getS1().getP1().getX()*zoom)+xsize/2,
+			/*g.drawLine( (int)(this.readFile.getTabFaces()[i].getS1().getP1().getX()*zoom)+xsize/2,
 					(int)(this.readFile.getTabFaces()[i].getS1().getP1().getY()*zoom)+ysize/2,	
 					(int)(this.readFile.getTabFaces()[i].getS1().getP2().getX()*zoom)+xsize/2,
 					(int)(this.readFile.getTabFaces()[i].getS1().getP2().getY()*zoom)+ysize/2);
@@ -89,12 +105,12 @@ public class Print extends JPanel {
 			g.drawLine((int)(this.readFile.getTabFaces()[i].getS3().getP1().getX()*zoom)+xsize/2,
 					(int)(this.readFile.getTabFaces()[i].getS3().getP1().getY()*zoom)+ysize/2,
 					(int)(this.readFile.getTabFaces()[i].getS3().getP2().getX()*zoom)+xsize/2,
-					(int)(this.readFile.getTabFaces()[i].getS3().getP2().getY()*zoom)+ysize/2);
+					(int)(this.readFile.getTabFaces()[i].getS3().getP2().getY()*zoom)+ysize/2);*/
 
 
 		}
 
-	}*/
+	}
 
 
 	public OpenFiles getReadFile() {
