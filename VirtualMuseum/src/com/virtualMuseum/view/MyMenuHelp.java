@@ -20,13 +20,16 @@ public class MyMenuHelp extends JFrame {
 		this.setLocationRelativeTo(null);
 		JLabel text=  new JLabel("Logiciel developper par Grandjean Rémi, Chevalier Benjamin et Quenon Thomas.");
 		JLabel text2=new JLabel("Réalisé au cour de la deuxième année de DUT informatique.");
-		JLabel text3 = new JLabel("Pour nous contacter en cas de problème d'utilisation du logiciel  : grandjeanremi0@gmail.com");
+		JLabel text3 = new JLabel("Pour nous contacter en cas de problème d'utilisation du logiciel  :");
+		JLabel text4 = new JLabel("grandjeanremi0@gmail.com");
 		panel.setLayout(new BoxLayout(panel,BoxLayout.PAGE_AXIS));
 		panel.add(text);
 		panel.add(Box.createRigidArea(new Dimension(0, 20)));
 		panel.add(text2);
 		panel.add(Box.createRigidArea(new Dimension(0, 20)));
 		panel.add(text3);
+		panel.add(Box.createRigidArea(new Dimension(0, 20)));
+		panel.add(text4);
 		this.add(panel);
 	}
 	

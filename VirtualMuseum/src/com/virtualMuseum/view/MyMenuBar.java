@@ -53,7 +53,7 @@ public class MyMenuBar extends JPanel{
 		file.add(exit);
 
 		menuBar.add(file);
-		menuBar.setPreferredSize(new Dimension(width,15));
+		menuBar.setPreferredSize(new Dimension(width+75,15));
 		this.add(menuBar);
 	}
 	public JMenuBar getMenuBar() {
@@ -81,9 +81,4 @@ public class MyMenuBar extends JPanel{
 	public JMenuItem getExit() {
 		return exit;
 	}
-
-	
-	
-	
-	
 }

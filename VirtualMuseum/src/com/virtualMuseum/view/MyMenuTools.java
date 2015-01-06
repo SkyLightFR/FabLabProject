@@ -1,5 +1,5 @@
 package com.virtualMuseum.view;
-//test
+
 import java.awt.Dimension;
 import java.io.IOException;
 
@@ -43,7 +43,7 @@ public class MyMenuTools extends JPanel{
 		keyWordsResearch.addActionListener(listener);
 		dateResearch.addActionListener(listener);
 		search = new JTextField();
-		search.setPreferredSize(new Dimension(70, 10));
+		search.setPreferredSize(new Dimension(100, 10));
 		search.setSize(100, 10);
 		
 		toolsBar.addSeparator();
@@ -65,12 +65,10 @@ public class MyMenuTools extends JPanel{
 	}
 	protected JButton makeNavigationButton(String imageName, String toolTipText) {
 		String imgLocation = "images/" + imageName + ".png";
-		
 		JButton button = new JButton();
 		button.setToolTipText(toolTipText);
 		button.add(new JLabel(new ImageIcon(imgLocation)));
 		button.setSize(new Dimension(24,24));
-	
 		return button;
 	}
 
@@ -103,6 +101,4 @@ public class MyMenuTools extends JPanel{
 	public JCheckBox getDateResearch() {
 		return dateResearch;
 	}
-	
-
 }

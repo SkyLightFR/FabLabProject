@@ -25,7 +25,6 @@ public class OpenFiles {
 	
 	private Date date; 
 	
-
 	public OpenFiles(String file) throws Exception {
 		this.file = file;
 		FileReader reader = new FileReader(file);
@@ -104,6 +103,7 @@ public class OpenFiles {
 	      if (index < right)
 	            quickSort(arr, index, right);
 	}
+	
 	private int sort(Faces array[],int left, int right) {
 		int i = left, j = right;
 		Faces tmp;
@@ -155,6 +155,7 @@ public class OpenFiles {
 	public void setTabFaces(Faces[] tabFaces) {
 		this.tabFaces = tabFaces;
 	}
+
 	public int getNbPoints() {
 		return nbPoints;
 	}
@@ -191,7 +192,4 @@ public class OpenFiles {
 		return date;
 	}
 	
-
-	
-
 }
