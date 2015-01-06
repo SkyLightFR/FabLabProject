@@ -63,6 +63,7 @@ public class MyMenuTools extends JPanel{
 		this.add(toolsBar);
 		
 	}
+	
 	protected JButton makeNavigationButton(String imageName, String toolTipText) {
 		String imgLocation = "images/" + imageName + ".png";
 		JButton button = new JButton();
@@ -95,9 +96,11 @@ public class MyMenuTools extends JPanel{
 	public JTextField getSearch() {
 		return search;
 	}
+	
 	public JCheckBox getKeyWordsResearch() {
 		return keyWordsResearch;
 	}
+	
 	public JCheckBox getDateResearch() {
 		return dateResearch;
 	}
