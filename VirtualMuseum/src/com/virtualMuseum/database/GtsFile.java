@@ -4,24 +4,23 @@ import java.util.Date;
 
 import javax.swing.ImageIcon;
 
+/*
+ * Modélise un fichier d'extension .gts
+ * @param nbPoints nombre de points du modèle
+ * @param nbSegments nombre de segment du modèle
+ * @param nbFaces nombre de face du modèle
+ * @param name nom du fichier
+ * @param chaineKeyWords chaine de caractère contenant tous les mots clé du modèle
+ * @param date date d'ajout du fichier
+ */
 public class GtsFile {
 	private int nbPoints;
 	private int nbSegments;
 	private int nbFaces;
 	private String name;
-	private String[] keyWords;
-	private ImageIcon img;
 	String chaineKeyWords;
 	private String date;
 	
-	public GtsFile(String name,int nbPoints, int nbSegments, int nbFaces, ImageIcon img,String keyWords){
-		this.name=name;
-		this.nbPoints=nbPoints;
-		this.nbSegments=nbSegments;
-		this.nbFaces=nbFaces;
-		this.img=img;
-		chaineKeyWords=keyWords;
-	}
 	public GtsFile(String name,int nbPoints, int nbSegments, int nbFaces,String keyWords,String date){
 		this.name=name;
 		this.nbPoints=nbPoints;
@@ -37,13 +36,6 @@ public class GtsFile {
 	}
 	public void setChaineKeyWords(String chaineKeyWords) {
 		this.chaineKeyWords = chaineKeyWords;
-	}
-	public ImageIcon getImg() {
-		return img;
-	}
-
-	public void setImg(ImageIcon img) {
-		this.img = img;
 	}
 
 	public int getNbPoints() {

@@ -14,12 +14,16 @@ import javax.swing.JPanel;
 import com.virtualMuseum.controler.OpenFiles;
 import com.virtualMuseum.model.Vecteur;
 
-
+/*
+ * Dessine la figure à partir du modèle ouvert
+ * Ajoute un effet de lumière
+ * 
+ */
 public class Print extends JPanel {
 
-	int zoom =30;
-	int xsize;
-	int ysize;
+	int zoom =30; // zoom sur la figure
+	int xsize; // largeur du panel
+	int ysize; // hauteur du panel
 	OpenFiles readFile;
 	
 	public Print(OpenFiles readFile){

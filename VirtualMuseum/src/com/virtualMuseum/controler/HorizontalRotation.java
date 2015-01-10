@@ -2,6 +2,11 @@ package com.virtualMuseum.controler;
 
 import com.virtualMuseum.view.Print;
 
+/*
+ * Effectue une rotation horizontal autour de l'axe y
+ * @param angle indique l'angle de rotation
+ */
+
 public class HorizontalRotation {
 	public HorizontalRotation(Print printer,double angle){
 		if(printer.getReadFile()!=null){

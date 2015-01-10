@@ -19,18 +19,22 @@ import javax.swing.JPanel;
 import com.virtualMuseum.controler.SaveFiles;
 import com.virtualMuseum.database.Connexion;
 
+/*
+ * Menu affichant les informations concernant le modèle afficher
+ * Miniature, nombre de points, segments et faces, mots clés, date d'ajout.
+ */
 public class MyMenuInformations extends JPanel {
-	JLabel JnbPoints=new JLabel();
-	JLabel JnbSegments=new JLabel();
-	JLabel JnbFaces=new JLabel();
-	JLabel name=new JLabel("");
-	JLabel keyWords=new JLabel("");
-	JLabel Jdate = new JLabel("");
-	ImageIcon img=new ImageIcon(""); 
-	JButton buttonImg=buttonImg=new JButton(img);
+	JLabel JnbPoints=new JLabel(); // label du nombre de point
+	JLabel JnbSegments=new JLabel(); // label du nombre de segment
+	JLabel JnbFaces=new JLabel(); // label du nombre de face
+	JLabel name=new JLabel(""); // label du nom
+	JLabel keyWords=new JLabel(""); // label des mots clés
+	JLabel Jdate = new JLabel(""); // label de la date d'ajout
+	ImageIcon img=new ImageIcon("");  // image de la miniature du modèle
+	JButton buttonImg=buttonImg=new JButton(img); // bouton contenant la miniature
 	Print printer;
 	File currentFile;
-	String format = "dd/MM/yy";
+	String format = "dd/MM/yy"; // format pour la date d'ajout
 	SimpleDateFormat formater = new SimpleDateFormat(format);
 	
 	public MyMenuInformations(Print print,MyMenuTree menuTree,File current){

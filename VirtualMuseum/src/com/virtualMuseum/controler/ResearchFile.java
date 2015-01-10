@@ -12,6 +12,9 @@ import javax.swing.JPopupMenu;
 import com.virtualMuseum.database.Connexion;
 import com.virtualMuseum.view.PrincipalPanel;
 
+/*
+ * Recherche simple d'un modele dans la base de donnée
+ */
 public class ResearchFile {
 	PrincipalPanel panel;
 	

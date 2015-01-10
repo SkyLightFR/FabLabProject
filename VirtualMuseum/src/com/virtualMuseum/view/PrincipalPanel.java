@@ -48,30 +48,33 @@ import com.virtualMuseum.controler.VerticalRotation;
 import com.virtualMuseum.database.Connexion;
 import com.virtualMuseum.database.GtsFile;
 
-
+/*
+ * Pannneau regroupant tous les menus et les met en forme
+ * 
+ */
 public class PrincipalPanel extends JPanel {
 	
-	JPanel print = new JPanel();
-	JPanel info=new JPanel();
+	JPanel print = new JPanel(); // panel d'affiche du modèle
+	JPanel info=new JPanel(); // panel contenant les informations de l'objet
 	MyMenuBar menuBar;
 	MyMenuTools menuTools;
 	MyMenuTree menuTree;
 	MyMenuChanges menuChanges;
 	MyMenuInformations menuInfo;
 	
-	JCheckBox lightBox=new JCheckBox("Lumiere",false);
-	JMenuItem fileResearch=new JMenuItem("");
-	FileFilter gts = new SimpleFilter("Fichiers gts", ".gts");
-	JFileChooser chooser = new JFileChooser(new File("."));
-	JFileChooser saveChooser = new JFileChooser(new File("."));
+	JMenuItem fileResearch=new JMenuItem(""); // permet d'afficher les resultats d'une recherche
+	FileFilter gts = new SimpleFilter("Fichiers gts", ".gts"); // filtre .gts
+	JFileChooser chooser = new JFileChooser(new File(".")); // dialogue pour ouvrir un modèle
+	JFileChooser saveChooser = new JFileChooser(new File(".")); // dialogue pour sauvegarder un modèle
 
-	File currentFile;
+	File currentFile; // récupère le modèle courant
 	Print printer;
 	OpenFiles readFile=null;
 	
-	protected int clicx;
-	protected int clicy;
-	String format = "dd/MM/yy";
+	protected int clicx; // recupérer la position x d'un clic sur l'ecran
+	protected int clicy; // recupérer la position x d'un clic sur l'ecran
+	
+	String format = "dd/MM/yy"; // format pour la date d'ajout
 	SimpleDateFormat formater = new SimpleDateFormat(format);
 	public PrincipalPanel() {	
 		info.setPreferredSize(new Dimension(240,400));
@@ -130,13 +133,6 @@ public class PrincipalPanel extends JPanel {
 		gbc.gridheight=1;
 		this.add(menuTools, gbc);
 		
-		
-		gbc.gridx = 2;
-	    gbc.gridy = 2;
-		gbc.gridwidth = GridBagConstraints.REMAINDER;
-		gbc.gridheight=1;
-		this.add(lightBox,gbc);
-		
 		gbc.gridx = 0;
 	    gbc.gridy = 2;
 	    gbc.gridwidth = 3;
@@ -175,6 +171,7 @@ public class PrincipalPanel extends JPanel {
 		new ResearchFileByDate(this);
 	}
 	
+	// Listener pour tous les boutons
 	public class ButtonListener implements ActionListener {
 		File fileChoose=null;
 		
@@ -403,6 +400,10 @@ public class PrincipalPanel extends JPanel {
 			
 		}
 	}
+	/*
+	 * Listener pour l'arborescence de la base donnée
+	 * 
+	 */
 	public class TreeListener implements TreeSelectionListener{
 
 		@Override
@@ -421,7 +422,10 @@ public class PrincipalPanel extends JPanel {
 		
 	}
 	
-	
+	/*
+	 * Listener pour gérer le zoom avec la molette souris sur le modèle
+	 * 
+	 */
 	public class Zoom implements MouseWheelListener{
 		int zoom=0;
 		@Override
@@ -443,6 +447,9 @@ public class PrincipalPanel extends JPanel {
 		
 	}
 	
+	/*
+	 * Listener pour détecter un clique souris
+	 */
 	public class MListener implements MouseListener{
 
 		@Override
@@ -482,6 +489,9 @@ public class PrincipalPanel extends JPanel {
 		}	
 	}
 	
+	/*
+	 * Listener pour gérer les rotations avec la souris
+	 */
 	public class Drag implements MouseMotionListener{
 		
 		@Override
@@ -498,7 +508,10 @@ public class PrincipalPanel extends JPanel {
 		}		
 	}
 	
-
+/*
+ * Affiche un modèle et met toutes les informations à jour
+ * 
+ */
 	public void printFile(String filename) throws Exception{
 		print.removeAll();
 		readFile=new OpenFiles(filename);

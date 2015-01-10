@@ -18,13 +18,17 @@ import javax.swing.event.ChangeListener;
 import com.virtualMuseum.view.PrincipalPanel.ButtonListener;
 import com.virtualMuseum.view.PrincipalPanel.MListener;
 
+/*
+ * Menu contenant l'outil de translation et de zoom
+ * 
+ */
 public class MyMenuChanges extends JPanel{
-	JButton transX=new JButton(new ImageIcon("images/X.png"));
-	JButton transY=new JButton(new ImageIcon("images/Y.png"));
-	JButton transLowerX=new JButton(new ImageIcon("images/lowerX.png"));
-	JButton transLowerY=new JButton(new ImageIcon("images/lowerY.png"));
-	JButton transCenter=new JButton(new ImageIcon("images/center.png"));
-	JSlider zoomSlider = new JSlider(JSlider.HORIZONTAL);
+	JButton transX=new JButton(new ImageIcon("images/X.png")); // bouton de translation vers la droite
+	JButton transY=new JButton(new ImageIcon("images/Y.png")); // bouton de translation vers le haut
+	JButton transLowerX=new JButton(new ImageIcon("images/lowerX.png")); // bouton de translation vers la gauche
+	JButton transLowerY=new JButton(new ImageIcon("images/lowerY.png")); // bouton de translation vers le bas
+	JButton transCenter=new JButton(new ImageIcon("images/center.png")); // bouton de translation vers le centre
+	JSlider zoomSlider = new JSlider(JSlider.HORIZONTAL); // slider pour régler le zoom
 	Print printer;
 	public MyMenuChanges(final Print printer,ButtonListener listener, MListener mouseListener){
 		this.setPreferredSize(new Dimension(300,350));
@@ -61,6 +65,10 @@ public class MyMenuChanges extends JPanel{
 		this.add(panelzoom);
 	}
 	
+	/*
+	 * Créer les boutons permettant la translation
+	 * 
+	 */
 	public void setButton(JButton button,ButtonListener listener, MListener mouseListener){
 		button.setPreferredSize(new Dimension(50,50));
 		button.addActionListener(listener);

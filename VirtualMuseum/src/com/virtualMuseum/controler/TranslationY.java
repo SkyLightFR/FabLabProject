@@ -2,6 +2,11 @@ package com.virtualMuseum.controler;
 
 import com.virtualMuseum.view.Print;
 
+/*
+ * Effectue une translation du modele hverticalement
+ * @param angle indique de quel coté effectuer la translation (haut = 1 ou bas = -1)
+ * 
+ */
 public class TranslationY {
 	public TranslationY(Print printer,int angle){
 		if(printer.getReadFile()!=null){

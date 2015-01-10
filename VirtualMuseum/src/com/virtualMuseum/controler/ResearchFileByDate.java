@@ -12,6 +12,10 @@ import javax.swing.JPopupMenu;
 import com.virtualMuseum.database.Connexion;
 import com.virtualMuseum.view.PrincipalPanel;
 
+/*
+ * Recherche par date d'ajout d'un modele
+ * 
+ */
 public class ResearchFileByDate {
 	PrincipalPanel panel;
 	public ResearchFileByDate(PrincipalPanel panel){

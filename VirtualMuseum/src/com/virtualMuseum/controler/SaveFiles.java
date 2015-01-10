@@ -9,9 +9,10 @@ import com.virtualMuseum.model.Points;
 import com.virtualMuseum.model.Segments;
 import com.virtualMuseum.view.Print;
 
-
-
-
+/*
+ * Sauvegarde un modele dans une fichier texte
+ * Reprend les attributs de la classe OpenFiles pour les enregistrer.
+ */
 
 public class SaveFiles {
 	private String name;

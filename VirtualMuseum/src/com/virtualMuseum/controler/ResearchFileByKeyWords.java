@@ -12,6 +12,10 @@ import javax.swing.JPopupMenu;
 import com.virtualMuseum.database.Connexion;
 import com.virtualMuseum.view.PrincipalPanel;
 
+/*
+ * Recherche par mot clé d'un modele
+ * 
+ */
 public class ResearchFileByKeyWords {
 	PrincipalPanel panel;
 	public ResearchFileByKeyWords(PrincipalPanel panel){

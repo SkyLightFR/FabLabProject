@@ -10,20 +10,22 @@ import com.virtualMuseum.model.Faces;
 import com.virtualMuseum.model.Points;
 import com.virtualMuseum.model.Segments;
 
+/*
+ * Ouvre et lit un fichier texte .gts
+ * @param file nom du fichier a ouvrir
+ */
 
 public class OpenFiles {
 	private String file;
-	private int nbPoints;
+	private int nbPoints; // Nombre de point du modele
+	private int nbSegments; // Nombre de segment du modele
+	private int nbFaces; // Nombre de face du modele
+	private Points tabPoints[]; // Tableau contenant tous les points du modele
+	private Segments tabSegments[]; // Tableau contenant tous les segments du modele
+	private Faces tabFaces[]; // Tableau contenant toutes les faces du modele
+	private ArrayList<String> keyWords; // Liste contenant les mots clé du modele
 	
-
-	private int nbSegments;
-	private int nbFaces;
-	private Points tabPoints[];
-	private Segments tabSegments[];
-	private Faces tabFaces[];
-	private ArrayList<String> keyWords;
-	
-	private Date date; 
+	private Date date;  // Date d'ajout du modele
 	
 	public OpenFiles(String file) throws Exception {
 		this.file = file;
@@ -95,6 +97,10 @@ public class OpenFiles {
 				keyWords.add(sc.next());
 			}
 	}
+	
+	/*
+	 * Trie rapide du tableau de Face en fonction du point z de chaque barycentre
+	 */
 	
 	public void quickSort(Faces arr[], int left, int right) {
 	      int index = sort(arr, left, right);

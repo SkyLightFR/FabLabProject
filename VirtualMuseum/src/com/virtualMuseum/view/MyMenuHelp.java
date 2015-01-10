@@ -10,6 +10,11 @@ import javax.swing.JPanel;
 
 public class MyMenuHelp extends JFrame {
 	
+/*
+ * Menu affichant les informations lié aux développeurs
+ * 
+ */
+	
 	public MyMenuHelp(){
 		JPanel panel = new JPanel();
 		this.setVisible(true);

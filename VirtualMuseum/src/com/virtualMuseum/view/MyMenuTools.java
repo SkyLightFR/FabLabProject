@@ -14,19 +14,24 @@ import javax.swing.JToolBar;
 
 import com.virtualMuseum.view.PrincipalPanel.ButtonListener;
 
+/*
+ * Barre d'outil 
+ * Permet l'ajout et la suppression du modèle à la base donnée
+ * Outil de recherche et recherche par critère
+ */
 public class MyMenuTools extends JPanel{
 	Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
 	int height = (int)screenSize.getHeight();
 	int width = (int)screenSize.getWidth();
 	JToolBar toolsBar = new JToolBar();
-	JButton toolsave;
-	JButton toolopen;
-	JButton tooladd;
-	JButton toolremove;
-	JButton toolresearch;
-	JTextField search;
-	JCheckBox keyWordsResearch=new JCheckBox("Recherche par mot clé",false);
-	JCheckBox dateResearch = new JCheckBox("Recherche par date",false);
+	JButton toolsave; // bouton sauvegarder
+	JButton toolopen; // bouton ouvrir 
+	JButton tooladd; // bouton ajouter à la base de donnée
+	JButton toolremove; // bouton supprimer de la base de donnée
+	JButton toolresearch; // bouton rechercher
+	JTextField search; // champ de texte pour la recherche
+	JCheckBox keyWordsResearch=new JCheckBox("Recherche par mot clé",false); // critère de recherche par mot clé
+	JCheckBox dateResearch = new JCheckBox("Recherche par date",false); // critère de recherche par date d'ajout
 	
 	public MyMenuTools(ButtonListener listener){
 		toolsBar.setFloatable(false);
@@ -64,6 +69,11 @@ public class MyMenuTools extends JPanel{
 		
 	}
 	
+	/*
+	 * Crée les boutons en leur associant une image et un texte d'information
+	 * @param imageName nom de l'image correspond au bouton
+	 * @param toolTipText associe un texte d'information au bouton quand on passe la souris dessus
+	 */
 	protected JButton makeNavigationButton(String imageName, String toolTipText) {
 		String imgLocation = "images/" + imageName + ".png";
 		JButton button = new JButton();

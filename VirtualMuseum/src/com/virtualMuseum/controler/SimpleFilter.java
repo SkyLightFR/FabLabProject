@@ -3,12 +3,16 @@ import java.io.File;
 
 import javax.swing.filechooser.FileFilter;
 
+/*
+ * Filtre l'extension .gts lors de l'ouverture d'un modele
+ * @param description indique la nature du filtre
+ * @param extension indique le type d'extension à filtrer
+ */
 
 public class SimpleFilter extends FileFilter{
-   //Description et extension acceptee par le filtre
    private String description;
    private String extension;
-   //Constructeur a partir de la description et de l'extension acceptee
+
    public SimpleFilter(String description, String extension){
       if(description == null || extension ==null){
          throw new NullPointerException("La description (ou extension) ne peut �tre null.");
@@ -16,7 +20,9 @@ public class SimpleFilter extends FileFilter{
       this.description = description;
       this.extension = extension;
    }
-   //Implementation de FileFilter
+   /*
+    * Implémentation du filtre
+    */
    public boolean accept(File file){
       if(file.isDirectory()) { 
          return true; 
@@ -26,6 +32,6 @@ public class SimpleFilter extends FileFilter{
       return nomFichier.endsWith(extension);
    }
       public String getDescription(){
-      return description;
+    	  return description;
    }
 }

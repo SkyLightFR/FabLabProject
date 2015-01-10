@@ -16,6 +16,10 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import com.virtualMuseum.database.Connexion;
 import com.virtualMuseum.view.PrincipalPanel.TreeListener;
 
+/*
+ * Menu contenant l'arborescence de la base de donnée
+ * Récupère tous les modèles de la base de donnée chaque fois que le logiciel est lancé
+ */
 public class MyMenuTree extends JPanel {
 	
 	JTree tree;

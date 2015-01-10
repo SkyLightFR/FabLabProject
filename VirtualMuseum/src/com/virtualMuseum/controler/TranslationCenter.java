@@ -1,10 +1,14 @@
 package com.virtualMuseum.controler;
 
 import java.awt.Dimension;
-
 import com.virtualMuseum.view.PrincipalPanel;
 import com.virtualMuseum.view.Print;
 
+/*
+ * Effectue une remise à l'origine de tous les points
+ * Ne conserve pas le zoom
+ * 
+ */
 public class TranslationCenter {
 	public TranslationCenter(Print printer,PrincipalPanel panel){
 		try{

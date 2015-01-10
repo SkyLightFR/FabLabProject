@@ -8,6 +8,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Date;
 	 
+/*
+ * Connexion à une base de donnée
+ * @param DBPath indique le chemin de la base de donnée
+ */
 	public class Connexion {
 	    private String DBPath = "";
 	    private Connection connection = null;
@@ -16,6 +20,11 @@ import java.util.Date;
 	    public Connexion(String dBPath) {
 	        DBPath = dBPath;
 	    }
+	    
+	    /*
+	     * Ouvre une connection à la base de donnée indiquée avec DBPath
+	     * 
+	     */
 	 
 	    public void connect() {
 	        try {
@@ -31,6 +40,11 @@ import java.util.Date;
 	            System.out.println("Erreur de connection");
 	        }
 	    }
+	    
+	    /*
+	     * Ferme la connection
+	     * 
+	     */
 	 
 	    public void close() {
 	        try {
@@ -41,6 +55,12 @@ import java.util.Date;
 	            e.printStackTrace();
 	        }
 	    }
+	    /*
+	     * Permet de créer une requète SQL
+	     * @param request requète SQL sous forme d'une chaine de caractère
+	     * @return result resultat de la requète
+	     * 
+	     */
 	    public ResultSet query(String request) {
 	        ResultSet result = null;
 	        try {
@@ -52,6 +72,10 @@ import java.util.Date;
 	        return result;
 	  
 	    }
+	    /*
+	     * Ajoute une fichier .gts dans la base de donnée
+	     * @param gtsFile fichier gts à ajouter
+	     */
 	    public void addGtsFile(GtsFile gtsFile){
 	    	
 	    	String query = "";
@@ -69,6 +93,11 @@ import java.util.Date;
 	    
 
 		}
+	    /*
+	     * Ajoute un mot clé donnée à un fichier précisé 
+	     * @param words mot clé à ajouter
+	     * @param filename nom du fichier à mettre à jour
+	     */
 	    public void addKeyWord(String words,String filename){
 	    	String query = "UPDATE Filegts SET motCle='"+words+"' WHERE name='"+filename+"';";
 	 
@@ -80,6 +109,10 @@ import java.util.Date;
 	    	}
 	    }
 	 
+	    /*
+	     * Supprime un modele de la base de donnée
+	     * @param name nom du fichier à supprimer
+	     */
 	    public void remove(String name){
 	    	String query = "DELETE FROM FILEGTS WHERE name='"+name+"';";
 	    	

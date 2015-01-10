@@ -2,18 +2,22 @@ package com.virtualMuseum.model;
 import java.awt.Point;
 import java.awt.Polygon;
 
-
+/*
+ * Représente une face d'un modèle
+ * @param s1 segment 1 de la face
+ * @param s2 segment 2 de la face
+ * @param s3 segment 3 de la face
+ * implémente l'intefarce Comparable pour le tri des faces
+ */
 public class Faces implements Comparable<Faces> {
 	Segments s1;
 	Segments s2;
 	Segments s3;
-	Points [] p; 
 	int posS1;
 	int posS2;
 	int posS3;
-	
+	Points [] p; //tableau contenant les 3 points de la face
 
-	
 	public Faces(Segments s1, Segments s2, Segments s3){
 		this.s1=s1;
 		this.s2=s2;
@@ -28,6 +32,11 @@ public class Faces implements Comparable<Faces> {
 			p[2]= s2.p2;
 		}
 	}
+	/*
+	 * Calcul le barycentre d'une face
+	 * @return gravityCenter point représente le barycentre
+	 * 
+	 */
 	public Points getGravityCenter(){
 		double x=0;
 		double y=0;
@@ -48,9 +57,7 @@ public class Faces implements Comparable<Faces> {
 	public void setP(Points[] p) {
 		this.p = p;
 	}
-	public String toString(){
-		return posS1+" "+posS2+" "+posS3;
-	}
+
 	public Segments getS1() {
 		return s1;
 	}
@@ -69,6 +76,10 @@ public class Faces implements Comparable<Faces> {
 	public void setS3(Segments s3) {
 		this.s3 = s3;
 	}
+	/*
+	 * Compare le barycentre du face
+	 * 
+	 */
 	@Override
 	public int compareTo(Faces e) {
 		return this.getGravityCenter().compareTo(e.getGravityCenter());
@@ -92,5 +103,7 @@ public class Faces implements Comparable<Faces> {
 	public void setPosS3(int posS3) {
 		this.posS3 = posS3;
 	}
+	
+	
 	
 }

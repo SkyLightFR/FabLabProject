@@ -16,13 +16,18 @@ import javax.swing.JTextField;
 import com.virtualMuseum.controler.OpenFiles;
 import com.virtualMuseum.database.Connexion;
 
+/*
+ * Menu permetant d'ajouter le fichier dans la base de donnée
+ * Permet d'ajouter des mots clé
+ * 
+ */
 public class MyMenuAddFile extends JFrame {
 	JPanel panel=new JPanel();
-	JPanel buttonPanel=new JPanel();
-	JLabel name;
-	JLabel keyWords;
-	JTextField text=new JTextField();
-	JButton addInBDD=new JButton("Ajouter à la bibliothèque");
+	JPanel buttonPanel=new JPanel(); // panel des boutons
+	JLabel name; // nom du modèle 
+	JLabel keyWords; // mots clés du modèle
+	JTextField text=new JTextField(); // champ de texte pour ajouter une mot clé
+	JButton addInBDD=new JButton("Ajouter à la bibliothèque"); // bouton ajouter
 	OpenFiles readFile;
 	
 	public MyMenuAddFile(OpenFiles readFile){
@@ -54,6 +59,7 @@ public class MyMenuAddFile extends JFrame {
 		
 	}
 	
+	// listener pour les boutons
 	public class ButtonListener implements ActionListener{
 
 		@Override

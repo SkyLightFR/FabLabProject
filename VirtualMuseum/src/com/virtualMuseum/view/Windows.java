@@ -3,7 +3,11 @@ import java.awt.Dimension;
 
 import javax.swing.JFrame;
 
-
+/*
+ * Crée la fenètre du logiciel
+ * @param panel panel contenant tous les composants
+ * 
+ */
 
 
 public class Windows extends JFrame {

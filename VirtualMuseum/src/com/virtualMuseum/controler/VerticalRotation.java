@@ -2,8 +2,12 @@ package com.virtualMuseum.controler;
 
 import com.virtualMuseum.view.Print;
 
+/*
+ * Effectue une rotation vertical autour de l'axe x
+ * @param angle indique l'angle de rotation
+ */
+
 public class VerticalRotation {
-	
 	public VerticalRotation(Print printer,double angle){
 		if(printer.getReadFile()!=null){
 			for(int i=0; i<printer.getReadFile().getNbPoints(); i++){

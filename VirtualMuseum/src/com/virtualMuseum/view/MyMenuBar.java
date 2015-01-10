@@ -12,6 +12,12 @@ import javax.swing.KeyStroke;
 
 import com.virtualMuseum.view.PrincipalPanel.ButtonListener;
 
+/*
+ * Barre de menu
+ * Contient l'onglet Fichier
+ * Permet d'ouvrir, sauvegarder un fichier, affiche l'aide ou quitter
+ * 
+ */
 public class MyMenuBar extends JPanel{
 	Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
 	int height = (int)screenSize.getHeight();
@@ -19,7 +25,7 @@ public class MyMenuBar extends JPanel{
 	JMenuBar menuBar = new JMenuBar();
 	JMenu file = new JMenu("Fichier");
 	JMenuItem open = new JMenuItem("Ouvrir");
-	JMenuItem save = new JMenuItem("Enregistrer");
+	JMenuItem save = new JMenuItem("Enregistrer"); 
 	JMenuItem saveAs = new JMenuItem("Enregistrer sous");
 	JMenuItem help = new JMenuItem("Aide");
 	JMenuItem exit = new JMenuItem("Quitter");
